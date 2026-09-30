@@ -34,15 +34,15 @@ Website ini berfungsi sebagai digital storefront sekaligus sales funnel. Tujuann
 
 Tidak ada framework, tidak ada library, dan `package.json` tidak punya `dependencies`. Node.js hanya dipakai untuk build konfigurasi dan server lokal, bukan untuk menjalankan website di browser.
 
-**Yang dibutuhkan:** Node.js 18 atau lebih baru. Itu saja.
+**Yang dibutuhkan:** Node.js 18 atau lebih baru. Itu saja. Vercel memakai Node 22 (lihat `vercel.json`).
 
 ---
 
 ## Menjalankan
 
 ```bash
-# 1. Siapkan konfigurasi
-copy .env.example .env          # Windows
+# 1. Siapkan konfigurasi (file .env sudah ada dan ikut di-commit)
+copy .env.example .env          # Windows, hanya kalau mau mulai dari nol
 # cp .env.example .env          # macOS dan Linux
 
 # 2. Bangun config.js dari .env
@@ -68,6 +68,20 @@ Setiap route yang tidak ditemukan otomatis dilayani oleh `index.html`, jadi `/pr
 ## Konfigurasi
 
 Semua konfigurasi ada di **`.env`**. File ini tidak pernah dibaca browser secara langsung, karena browser hanya bisa membaca JavaScript. Karena itu `build-config.mjs` mengubahnya menjadi `assets/js/config.js` yang bisa diimpor.
+
+### Apakah `.env` ikut di-commit?
+
+**Ya, dan itu disengaja.** Isinya hanya data kontak bisnis yang memang meant untuk publik: nama brand, kota, nomor WhatsApp, email, dan link media sosial. Data yang sama sudah muncul di `assets/js/config.js` yang dibaca browser, jadi tidak ada eksposur tambahan.
+
+Yang tidak boleh pernah masuk ke `.env`:
+
+- API key atau token layanan lain
+- Password database
+- Kredensial OAuth
+
+Kalau butuh nilai lokal yang tidak boleh muncul di repository, pakai `.env.local`. File itu sudah masuk `.gitignore`.
+
+Untuk Emoji Vercel, variabel `CC_*` diisi lewat **Project Settings → Environment Variables**, bukan lewat file `.env`, supaya nilainya bisa berbeda antara preview dan production.
 
 **File yang dibuat otomatis dan jangan diedit langsung:**
 
@@ -154,6 +168,7 @@ jasa-umkm/
 ├── check.mjs               Verifikasi konten dan struktur
 ├── browser-check.mjs       Verifikasi di browser sungguhan
 ├── package.json            Hanya script, tanpa dependensi
+├── vercel.json             Setelan build dan rewrite untuk Vercel
 ├── robots.txt              Dibuat otomatis dari CC_BASE_URL
 ├── sitemap.xml             Dibuat otomatis dari CC_BASE_URL
 ├── PRD.md
@@ -225,7 +240,35 @@ Memeriksa 46 hal: routing tanpa reload, tombol back dan forward, filter project,
 
 Website ini statis. Cukup upload semua file ke hosting. **Jangan upload `.env`** kalau repository-nya publik, tapi `assets/js/config.js` **harus** ikut terupload karena itu yang dibaca browser.
 
-### Netlify, Vercel, Cloudflare Pages
+### Vercel
+
+Repository sudah termasuk `vercel.json`, jadi tidak perlu setelan manual.
+
+| Setelan | Nilai |
+|---|---|
+| Framework Preset | Other |
+| Build Command | `node build-config.mjs` |
+| Output Directory | `.` |
+| Install Command | `echo tidak ada dependensi` |
+
+Isi variabel di **Project Settings → Environment Variables**:
+
+```
+CC_BRAND
+CC_TAGLINE
+CC_CITY
+CC_WA_NUMBER
+CC_EMAIL
+CC_INSTAGRAM
+CC_TIKTOK
+CC_LINKEDIN
+CC_BASE_URL
+CC_LEAD_MESSAGE
+```
+
+`vercel.json` sudah berisi aturan rewrite untuk SPA, jadi `/pricing` dan route lain tidak akan 404.
+
+### Netlify, Cloudflare Pages
 
 Upload lewat drag and drop, atau hubungkan repository.
 
@@ -257,10 +300,11 @@ Satu nilai itu otomatis dipakai di lima tempat: tag `canonical`, `og:url`, JSON-
 
 ## Sebelum rilis
 
-- [ ] Isi `CC_WA_NUMBER` di `.env`, lalu `node build-config.mjs`
-- [ ] Isi `CC_EMAIL` dengan alamat asli
-- [ ] Isi `CC_BASE_URL` dengan domain asli
-- [ ] Isi link Instagram, TikTok, dan LinkedIn di `.env`
+- [x] Isi `CC_WA_NUMBER` di `.env`, lalu `node build-config.mjs`
+- [x] Isi `CC_EMAIL` dengan alamat asli
+- [ ] **Isi `CC_BASE_URL` dengan domain asli.** Masih `https://codecraft.example`
+- [x] Isi link Instagram dan TikTok di `.env`
+- [ ] Isi link LinkedIn kalau dipakai
 - [ ] Buat `assets/img/og-cover.jpg` berukuran 1200 x 630
 - [ ] Ganti 9 foto contoh di `assets/js/data.js` dengan screenshot website asli
 - [ ] Ganti logo teks di `assets/js/layout.js` bila logo final sudah tersedia

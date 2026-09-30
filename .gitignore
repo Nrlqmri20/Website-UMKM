@@ -1,5 +1,8 @@
-# Kredensial dan konfigurasi lokal. Jangan pernah di-commit.
-.env
+# Catatan: .env sengaja ikut di-commit.
+# Isinya hanya data kontak bisnis yang memang meant untuk publik.
+# JANGAN pernah menaruh API key, token, atau password di file ini.
+# Untuk nilai lokal sementara, pakai .env.local yang tetap diabaikan.
+
 .env.local
 
 # Dependensi

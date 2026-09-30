@@ -72,12 +72,25 @@ function configSourceUses(field) {
 console.log("\n== keamanan konfigurasi ==");
 
 const ignore = existsSync(".gitignore") ? readFileSync(".gitignore", "utf8") : "";
-check(".env ada di .gitignore", /^\.env$/m.test(ignore));
+
 check("node_modules diabaikan", /node_modules/.test(ignore));
-check(
-  ".env.example tetap ikut commit",
-  existsSync(".env.example"),
-);
+check(".env.example tetap ikut commit", existsSync(".env.example"));
+check(".env ikut di-commit (keputusan sadar)", !/^\.env$/m.test(ignore), "kalau .env diabaikan, hapus baris .env dari .gitignore");
+check(".env.local tetap diabaikan", /^\.env\.local$/m.test(ignore));
+
+const forbiddenInEnv = /(api[_-]?key|secret|password|token|private[_-]?key)/i;
+const envSource = existsSync(".env") ? readFileSync(".env", "utf8") : "";
+const riskyKeys = [...envSource.matchAll(/^(CC_\w+)=/gm)]
+  .map((m) => m[0])
+  .filter((line) => forbiddenInEnv.test(line.split("=")[0]));
+
+check("tidak ada kunci rahasia di .env", riskyKeys.length === 0, riskyKeys);
+check("vercel.json ada dan berisi rewrite SPA", existsSync("vercel.json") && /"rewrites"/.test(readFileSync("vercel.json", "utf8")));
+
+const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
+check("vercel.json build command benar", vercel.buildCommand === "node build-config.mjs", vercel.buildCommand);
+check("vercel.json output directory benar", vercel.outputDirectory === ".", vercel.outputDirectory);
+check("vercel.json rewrite ke index.html", JSON.stringify(vercel.rewrites).includes("/index.html"));
 
 const allowedEnvKeys = new Set([
   "CC_BRAND",

@@ -6,15 +6,15 @@ export const config = {
   "tagline": "Bantu bisnis dan personal brand tampil lebih profesional di dunia digital.",
   "city": "Banda Aceh",
   "baseUrl": "https://codecraft.example",
-  "email": "hello@codecraft.example",
-  "waNumber": "",
+  "email": "nurulqamari20@gmail.com",
+  "waNumber": "62852177178789",
   "social": {
-    "instagram": "",
-    "tiktok": "",
+    "instagram": "https://www.instagram.com/nrlqmr__/",
+    "tiktok": "https://www.tiktok.com/@nrlqmr___",
     "linkedin": ""
   },
   "leadMessage": "Halo CodeCraft Digital, saya mau konsultasi website untuk usaha saya.",
-  "waReady": false
+  "waReady": true
 };
 
 export const waLink = (message = config.leadMessage) => {
