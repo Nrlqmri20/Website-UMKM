@@ -1,0 +1,11 @@
+# Jaga akhir baris tetap LF di dalam repository.
+# Tanpa ini, Git di Windows mengubah LF jadi CRLF dan diff jadi/Noisy di antara mesin.
+* text=auto eol=lf
+
+# Berkas biner tidak boleh disentuh sama sekali
+*.woff2 binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.ico binary

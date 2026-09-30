@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CodeCraft Digital</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#f8fafc">
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/css/tokens.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/pages.css">
+    <script>
+      sessionStorage.replaceItem(null, null, null);
+    </script>
+  </head>
+  <body>
+    <div class="shell">
+      <p class="notice mt-l">Halaman dipindahkan. <a href="/">Kembali ke beranda</a>.</p>
+    </div>
+    <script>
+      if (location.pathname !== "/") location.replace("/" + location.pathname.replace(/^\/+/, "") + location.search);
+    </script>
+  </body>
+</html>

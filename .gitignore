@@ -1,0 +1,25 @@
+# Kredensial dan konfigurasi lokal. Jangan pernah di-commit.
+.env
+.env.local
+
+# Dependensi
+node_modules/
+package-lock.json
+
+# Log dan cache
+*.log
+npm-debug.log*
+.cache/
+
+# Berkas OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Berkas sementara
+*.tmp
+*.bak
+*.swp
+
+# Catatan kerja lokal
+session-*.md

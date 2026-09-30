@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/space-grotesk-var.woff2") format("woff2-variations");
+  font-weight: 300 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../fonts/plus-jakarta-sans-var.woff2") format("woff2-variations");
+  font-weight: 200 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  color-scheme: light;
+
+  --canvas: #f8fafc;
+  --canvas-tint: #eef4f9;
+  --surface: #ffffff;
+  --surface-sunk: #f1f5f9;
+  --border: #dde5ed;
+  --border-strong: #c3d0dc;
+
+  --ink: #111827;
+  --ink-soft: #33415a;
+  --ink-muted: #4b5563;
+
+  --brand: #4da8da;
+  --brand-strong: #1a6fa6;
+  --brand-strong-hover: #155c8b;
+  --brand-ink: #0e4c73;
+  --brand-wash: #e4f1fa;
+  --on-brand: #ffffff;
+  --danger: #b42318;
+
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+
+  --step--1: clamp(0.83rem, 0.81rem + 0.1vw, 0.89rem);
+  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
+  --step-1: clamp(1.18rem, 1.11rem + 0.34vw, 1.38rem);
+  --step-2: clamp(1.42rem, 1.28rem + 0.7vw, 1.85rem);
+  --step-3: clamp(1.75rem, 1.46rem + 1.4vw, 2.6rem);
+  --step-4: clamp(2.05rem, 1.52rem + 2.35vw, 2.9rem);
+
+  --radius-control: 999px;
+  --radius-field: 12px;
+  --radius-card: 18px;
+  --radius-media: 22px;
+
+  --shell: 74rem;
+  --gutter: clamp(1.25rem, 4vw, 2.75rem);
+  --section-y: clamp(4.25rem, 8.5vw, 8rem);
+  --nav-h: 4.25rem;
+
+  --shadow-card: 0 1px 2px rgba(17, 24, 39, 0.04), 0 12px 30px -18px rgba(17, 24, 39, 0.18);
+  --shadow-lift: 0 2px 4px rgba(17, 24, 39, 0.05), 0 24px 48px -24px rgba(17, 24, 39, 0.26);
+  --shadow-nav: 0 1px 0 var(--border);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --canvas: #0b1220;
+    --canvas-tint: #101a2c;
+    --surface: #121a2a;
+    --surface-sunk: #0f1725;
+    --border: #223049;
+    --border-strong: #31415e;
+
+    --ink: #eaf1f8;
+    --ink-soft: #c3d2e2;
+    --ink-muted: #9dafc5;
+
+    --brand: #6fc0e8;
+    --brand-strong: #6fc0e8;
+    --brand-strong-hover: #93d0ef;
+    --brand-ink: #8fcef1;
+    --brand-wash: #16293c;
+    --on-brand: #08121d;
+    --danger: #ff9f92;
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 30px -18px rgba(0, 0, 0, 0.7);
+    --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 48px -24px rgba(0, 0, 0, 0.85);
+  }
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --canvas: #f8fafc;
+  --canvas-tint: #eef4f9;
+  --surface: #ffffff;
+  --surface-sunk: #f1f5f9;
+  --border: #dde5ed;
+  --border-strong: #c3d0dc;
+  --ink: #111827;
+  --ink-soft: #33415a;
+  --ink-muted: #4b5563;
+  --brand: #4da8da;
+  --brand-strong: #1a6fa6;
+  --brand-strong-hover: #155c8b;
+  --brand-ink: #0e4c73;
+  --brand-wash: #e4f1fa;
+  --on-brand: #ffffff;
+  --danger: #b42318;
+  --shadow-card: 0 1px 2px rgba(17, 24, 39, 0.04), 0 12px 30px -18px rgba(17, 24, 39, 0.18);
+  --shadow-lift: 0 2px 4px rgba(17, 24, 39, 0.05), 0 24px 48px -24px rgba(17, 24, 39, 0.26);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #0b1220;
+  --canvas-tint: #101a2c;
+  --surface: #121a2a;
+  --surface-sunk: #0f1725;
+  --border: #223049;
+  --border-strong: #31415e;
+  --ink: #eaf1f8;
+  --ink-soft: #c3d2e2;
+  --ink-muted: #9dafc5;
+  --brand: #6fc0e8;
+  --brand-strong: #6fc0e8;
+  --brand-strong-hover: #93d0ef;
+  --brand-ink: #8fcef1;
+  --brand-wash: #16293c;
+  --on-brand: #08121d;
+  --danger: #ff9f92;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 30px -18px rgba(0, 0, 0, 0.7);
+  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 48px -24px rgba(0, 0, 0, 0.85);
+}

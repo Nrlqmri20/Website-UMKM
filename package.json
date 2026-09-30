@@ -1,0 +1,13 @@
+{
+  "name": "codecraft-digital",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Website CodeCraft Digital. HTML, CSS, dan JavaScript tanpa framework.",
+  "scripts": {
+    "build": "node build-config.mjs",
+    "dev": "node build-config.mjs && node dev-server.mjs",
+    "check": "node build-config.mjs && node check.mjs",
+    "check:browser": "node browser-check.mjs"
+  }
+}
