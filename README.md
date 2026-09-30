@@ -93,9 +93,28 @@ Untuk Emoji Vercel, variabel `CC_*` diisi lewat **Project Settings → Environme
 
 Semuanya akan tertimpa setiap kali `build-config.mjs` dijalankan.
 
+### Dua sumber konfigurasi
+
+`build-config.mjs` membaca dari dua tempat, dan **environment variable proses menang** kalau keduanya punya nilai yang sama:
+
+| Sumber | Dipakai di |
+|---|---|
+| File `.env` di root repository | pengembangan lokal |
+| `process.env` | Vercel, CI, dan hosting lain |
+
+Alasannya: Vercel menyediakan variabel lewat Project Settings, dan saat build nilai itu tersedia di `process.env`, bukan sebagai file. Jadi kode yang hanya membaca file `.env` akan gagal di Vercel.
+
+Contoh hanya(process.env) tanpa file `.env`:
+
+```bash
+CC_BRAND="CodeCraft Digital" CC_EMAIL="nurulqamari20@gmail.com" CC_BASE_URL="https://domain-anda.com" node build-config.mjs
+```
+
+Kalau sumbernya tidak ada, build berhenti dengan pesan yang menyebutkan file mana yang kurang.
+
 ### Cara mengubah
 
-1. Edit `.env`
+1. Edit `.env` (lokal) atau Project Settings (Vercel)
 2. Jalankan `node build-config.mjs`
 3. Muat ulang halaman
 
@@ -253,6 +272,16 @@ Repository sudah termasuk `vercel.json`, jadi tidak perlu setelan manual.
 
 Isi variabel di **Project Settings → Environment Variables**:
 
+Minimal wajib tiga, sisanya opsional:
+
+```
+CC_BRAND
+CC_EMAIL
+CC_BASE_URL
+```
+
+Lengkap:
+
 ```
 CC_BRAND
 CC_TAGLINE
@@ -265,6 +294,8 @@ CC_LINKEDIN
 CC_BASE_URL
 CC_LEAD_MESSAGE
 ```
+
+Tanpa tiga yang wajib, build berhenti dengan pesan jelas. Yang opsional boleh kosong, website tetap jalan.
 
 `vercel.json` sudah berisi aturan rewrite untuk SPA, jadi `/pricing` dan route lain tidak akan 404.
 
@@ -292,7 +323,9 @@ location / {
 
 ### Yang perlu diganti sebelum upload
 
-Isi `CC_BASE_URL` di `.env` dengan domain asli, lalu jalankan `node build-config.mjs`.
+Isi `CC_BASE_URL` di `.env` dengan domain Vercel, lalu jalankan `node build-config.mjs`.
+
+Untuk domain Vercel, pakai URL yang tertera di Project → Domains. Untuk domain sendiri, pakai domain itu dan tambahkan domain Vercel sebagai alias. Baik `sitemap.xml` maupun `robots.txt` ikut berubah karena keduanya dibangun dari nilai ini.
 
 Satu nilai itu otomatis dipakai di lima tempat: tag `canonical`, `og:url`, JSON-LD, `robots.txt`, dan `sitemap.xml`. Tidak ada domain yang perludiedit manual di file lain.
 

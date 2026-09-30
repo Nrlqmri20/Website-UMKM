@@ -7,11 +7,18 @@ const root = dirname(fileURLToPath(import.meta.url));
 const envPath = join(root, ".env");
 const outPath = join(root, "assets", "js", "config.js");
 
-if (!existsSync(envPath)) {
-  console.error("File .env tidak ditemukan.");
-  console.error("Salin .env.example jadi .env, lalu isi nilainya.");
-  process.exit(1);
-}
+const KEYS = [
+  "CC_BRAND",
+  "CC_TAGLINE",
+  "CC_CITY",
+  "CC_WA_NUMBER",
+  "CC_EMAIL",
+  "CC_INSTAGRAM",
+  "CC_TIKTOK",
+  "CC_LINKEDIN",
+  "CC_BASE_URL",
+  "CC_LEAD_MESSAGE",
+];
 
 const parseEnv = (text) => {
   const out = {};
@@ -39,14 +46,36 @@ const parseEnv = (text) => {
   return out;
 };
 
-const env = parseEnv(readFileSync(envPath, "utf8"));
+const hasEnvFile = existsSync(envPath);
+const fromFile = hasEnvFile ? parseEnv(readFileSync(envPath, "utf8")) : {};
+const fromProcess = {};
+
+for (const key of KEYS) {
+  if (process.env[key] !== undefined && process.env[key] !== "") {
+    fromProcess[key] = process.env[key];
+  }
+}
+
+// Environment variable proses menang, supaya Vercel dan CI bisa menimpa nilai lokal.
+const env = { ...fromFile, ...fromProcess };
 
 const required = ["CC_BRAND", "CC_EMAIL", "CC_BASE_URL"];
 const missing = required.filter((key) => !env[key]);
 
 if (missing.length) {
-  console.error("Nilai wajib belum diisi di .env:");
+  console.error("Nilai wajib belum tersedia. Sumber yang dicek:");
+  console.error("  1. file .env di root repository");
+  console.error("  2. environment variable proses (CC_BRAND, CC_EMAIL, CC_BASE_URL)");
+  console.error("");
+  console.error("Yang belum diisi:");
   missing.forEach((key) => console.error("  " + key));
+  console.error("");
+  if (hasEnvFile) {
+    console.error("File .env ada tapi nilainya kosong. Isi di .env lalu ulangi.");
+  } else {
+    console.error("File .env tidak ada. Untuk lokal: salin .env.example jadi .env.");
+    console.error("Untuk Vercel: isi di Project Settings > Environment Variables.");
+  }
   process.exit(1);
 }
 
@@ -136,14 +165,29 @@ const sitemap = [
 
 writeFileSync(join(root, "sitemap.xml"), sitemap, "utf8");
 
-console.log("config.js dibuat dari .env");
-console.log("  brand      : " + config.brand);
-console.log("  email      : " + config.email);
-console.log("  baseUrl    : " + config.baseUrl);
-console.log("  whatsapp   : " + (config.waReady ? config.waNumber : "belum diisi, tombol dialihkan ke /contact"));
-console.log("  social     : " + socialCount + " dari 3 terisi");
+const origin = (key) => {
+  if (fromProcess[key] !== undefined) return "process.env";
+  if (fromFile[key] !== undefined && fromFile[key] !== "") return ".env";
+  return "kosong";
+};
+
+console.log("config.js dibuat");
+console.log("  sumber     : " +
+  (hasEnvFile ? ".env" : "tanpa .env") +
+  (Object.keys(fromProcess).length ? " + process.env" : ""));
+console.log("  brand      : " + config.brand + "  [" + origin("CC_BRAND") + "]");
+console.log("  email      : " + config.email + "  [" + origin("CC_EMAIL") + "]");
+console.log("  baseUrl    : " + config.baseUrl + "  [" + origin("CC_BASE_URL") + "]");
+console.log("  whatsapp   : " + (config.waReady ? config.waNumber : "belum diisi, tombol dialihkan ke /contact") + "  [" + origin("CC_WA_NUMBER") + "]");
+console.log("  social     : " + socialCount + " dari 3 terisi  [" + origin("CC_INSTAGRAM") + "]");
 console.log("  robots.txt : ditulis ulang");
 console.log("  sitemap.xml: ditulis ulang, " + routes.length + " route");
+
+const empty = KEYS.filter((key) => !env[key]);
+if (empty.length) {
+  console.log("");
+  console.log("Variabel kosong (opsional, website tetap jalan): " + empty.join(", "));
+}
 
 if (!config.waReady) {
   console.log("");
