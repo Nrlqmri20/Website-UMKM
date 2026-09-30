@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "description": "Website CodeCraft Digital. HTML, CSS, dan JavaScript tanpa framework.",
   "scripts": {
     "build": "node build-config.mjs",

@@ -4,9 +4,6 @@
   "buildCommand": "node build-config.mjs",
   "outputDirectory": ".",
   "installCommand": "echo tidak ada dependensi",
-  "engines": {
-    "node": "22.x"
-  },
   "rewrites": [
     {
       "source": "/((?!assets/).*)",
