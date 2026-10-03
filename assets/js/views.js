@@ -39,6 +39,7 @@ const workCard = (item) => `
     <div class="work__body">
       <span class="work__tag">${esc(item.categoryLabel)}</span>
       <h3>${esc(item.title)}</h3>
+      ${item.client ? `<p class="work__client">${esc(item.client)}</p>` : ""}
       <p>${esc(item.summary)}</p>
       ${
         item.liveUrl

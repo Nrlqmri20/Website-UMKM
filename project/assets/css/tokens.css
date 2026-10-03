@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Literata";
+  src: url("../fonts/literata-var.woff2") format("woff2-variations");
+  font-weight: 300 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/figtree-var.woff2") format("woff2-variations");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  color-scheme: light;
+
+  --canvas: #f4f6f3;
+  --canvas-deep: #e9eee8;
+  --surface: #ffffff;
+  --surface-sunk: #eef2ec;
+  --border: #dbe2d8;
+  --border-strong: #bcc9bb;
+
+  --ink: #14261e;
+  --ink-soft: #2f4438;
+  --ink-muted: #55685c;
+
+  --brand: #1f4a37;
+  --brand-deep: #14261e;
+  --brand-wash: #e3ece4;
+
+  --accent: #c2701a;
+  --accent-strong: #a05a10;
+  --accent-deep: #9a5411;
+  --accent-wash: #f7ead9;
+
+  --on-brand: #f4f6f3;
+  --on-accent: #ffffff;
+  --danger: #a3341f;
+
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+
+  --step--1: clamp(0.85rem, 0.83rem + 0.1vw, 0.9rem);
+  --step-0: clamp(1rem, 0.98rem + 0.12vw, 1.06rem);
+  --step-1: clamp(1.15rem, 1.09rem + 0.3vw, 1.32rem);
+  --step-2: clamp(1.35rem, 1.22rem + 0.62vw, 1.7rem);
+  --step-3: clamp(1.65rem, 1.4rem + 1.25vw, 2.35rem);
+  --step-4: clamp(1.95rem, 1.45rem + 2.1vw, 2.6rem);
+
+  --radius-control: 999px;
+  --radius-field: 10px;
+  --radius-card: 16px;
+  --radius-media: 24px;
+
+  --shell: 70rem;
+  --gutter: clamp(1.15rem, 4vw, 2.5rem);
+  --section-y: clamp(3.75rem, 7.5vw, 7rem);
+  --nav-h: 4rem;
+
+  --shadow-card: 0 1px 2px rgba(20, 38, 30, 0.05), 0 10px 26px -16px rgba(20, 38, 30, 0.22);
+  --shadow-lift: 0 2px 5px rgba(20, 38, 30, 0.06), 0 22px 44px -22px rgba(20, 38, 30, 0.3);
+  --shadow-nav: 0 1px 0 var(--border);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

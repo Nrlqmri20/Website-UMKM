@@ -4,9 +4,21 @@
   "buildCommand": "node build-config.mjs",
   "outputDirectory": ".",
   "installCommand": "echo tidak ada dependensi",
+  "redirects": [
+    {
+      "source": "/project",
+      "destination": "/project/",
+      "permanent": true
+    },
+    {
+      "source": "/project2",
+      "destination": "/project2/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/((?!assets/).*)",
+      "source": "/((?!assets/|project/|project2/).*)",
       "destination": "/index.html"
     }
   ]

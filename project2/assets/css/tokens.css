@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-var.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("../fonts/bevietnam-var.woff2") format("woff2-variations");
+  font-weight: 100 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  color-scheme: light;
+
+  --canvas: #f7f2ec;
+  --canvas-tint: #f0e7de;
+  --surface: #ffffff;
+  --surface-sunk: #efe6dc;
+  --border: #e2d5c7;
+  --border-strong: #c9b6a3;
+
+  --ink: #2a1419;
+  --ink-soft: #4d2f33;
+  --ink-muted: #6d4c4c;
+
+  --brand: #6d1f2c;
+  --brand-deep: #2a1419;
+  --brand-wash: #f6e3e0;
+
+  --accent: #d94a22;
+  --accent-strong: #ab3413;
+  --accent-deep: #8f2a0f;
+  --accent-wash: #fde8dd;
+
+  --on-brand: #f7f2ec;
+  --on-accent: #ffffff;
+  --danger: #a01f1f;
+
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-body: "Be Vietnam Pro", system-ui, sans-serif;
+
+  --step--1: clamp(0.85rem, 0.83rem + 0.1vw, 0.9rem);
+  --step-0: clamp(1rem, 0.98rem + 0.12vw, 1.06rem);
+  --step-1: clamp(1.12rem, 1.07rem + 0.26vw, 1.26rem);
+  --step-2: clamp(1.3rem, 1.18rem + 0.58vw, 1.62rem);
+  --step-3: clamp(1.55rem, 1.34rem + 1.05vw, 2.15rem);
+  --step-4: clamp(1.95rem, 1.5rem + 2.05vw, 2.85rem);
+
+  --radius-control: 999px;
+  --radius-field: 10px;
+  --radius-card: 14px;
+  --radius-media: 20px;
+
+  --shell: 68rem;
+  --gutter: clamp(1.15rem, 4vw, 2.5rem);
+  --section-y: clamp(3.5rem, 7vw, 6.25rem);
+  --nav-h: 3.75rem;
+
+  --shadow-card: 0 1px 2px rgba(42, 20, 25, 0.06), 0 8px 22px -14px rgba(42, 20, 25, 0.28);
+  --shadow-lift: 0 2px 5px rgba(42, 20, 25, 0.08), 0 20px 40px -20px rgba(42, 20, 25, 0.34);
+  --shadow-nav: 0 1px 0 var(--border);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

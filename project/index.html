@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kopi Lambuk | Kedai kopi tubruk di Banda Aceh</title>
+    <meta name="description" content="Kedai kopi tubruk di Jalan Tgk. H. Hasan, Banda Aceh. Biji arabika Aceh, diseduh tiap pagi. Buka 07.00 sampai 23.00.">
+    <meta name="theme-color" content="#f4f6f3">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kopi Lambuk | Kedai kopi tubruk di Banda Aceh">
+    <meta property="og:description" content="Biji arabika Aceh, diseduh tiap pagi.">
+    <meta property="og:image" content="assets/img/hero.webp">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%231f4a37'/><circle cx='16' cy='16' r='6' fill='%23f4f6f3'/></svg>">
+    <link rel="preload" href="assets/fonts/literata-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/figtree-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Lompat ke konten utama</a>
+
+    <header class="header">
+      <div class="shell header__inner">
+        <a class="brand" href="#top">
+          <span class="brand__mark" aria-hidden="true">KL</span>
+          <span class="brand__name">Kopi Lambuk</span>
+        </a>
+
+        <nav class="nav" id="site-nav" aria-label="Navigasi utama">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#menu">Menu</a></li>
+            <li><a class="nav__link" href="#cerita">Cerita</a></li>
+            <li><a class="nav__link" href="#suasana">Suasana</a></li>
+            <li><a class="nav__link" href="#kunjungi">Kunjungi</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <a class="btn btn--solid" href="#kunjungi">Cari kedai</a>
+          <button class="burger" type="button" data-burger aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu navigasi">
+            <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="shell hero__grid">
+          <div>
+            <span class="eyebrow" data-reveal>Biji arabika Aceh</span>
+            <h1 class="hero__title" data-reveal data-reveal-index="1">Kopi tubruk yang <em>lambuk</em> di tenggorokan.</h1>
+            <p class="hero__sub" data-reveal data-reveal-index="2">Kami menyangrai sendiri tiap Rabu dan menyeduh setiap gelasnya pada pagi itu juga.</p>
+            <div class="hero__actions" data-reveal data-reveal-index="3">
+              <a class="btn btn--accent btn--lg" href="#menu">Lihat menu</a>
+              <a class="btn btn--ghost btn--lg" href="#kunjungi">Jam buka</a>
+            </div>
+            <div class="hero__open" data-reveal data-reveal-index="4">
+              <span><b>Senin sampai Jumat</b> 07.00 sampai 23.00</span>
+              <span><b>Sabtu Minggu</b> 08.00 sampai 23.30</span>
+            </div>
+          </div>
+
+          <figure class="hero__media" data-reveal>
+            <img src="assets/img/hero.webp" alt="Menuang air panas dari teko hitam ke corong pour over, kopi menetes ke gelas" width="1400" height="933" fetchpriority="high" decoding="async">
+            <figcaption class="hero__badge">
+              <span class="hero__badge-label">Cara seduh</span>
+              <p>Pour over satu sachet, lama tamping satu gelas</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--tight section--brand">
+        <div class="shell">
+          <ul class="band">
+            <li data-reveal>
+              <h3>Biji lokal</h3>
+              <p>Arabika dari petani di dataran tinggi Gayo. Dipilih tangan, bukan mesin.</p>
+            </li>
+            <li data-reveal>
+              <h3>Disangrai mingguan</h3>
+              <p>Rabu, batch kecil, dibungkus pada hari yang sama.</p>
+            </li>
+            <li data-reveal>
+              <h3>Tanpa gula tambahan</h3>
+              <p>Pelarutnya air. Kalau mau susu, bilang saja ke kasir.</p>
+            </li>
+            <li data-reveal>
+              <h3>Bisa bawa pulang</h3>
+              <p>Biji mentah 250 gram, di timbang sesuai kebutuhan.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="menu">
+        <div class="shell">
+          <div class="section__head" data-reveal>
+            <span class="eyebrow">Menu</span>
+            <h2>Semua yang bisa kamu pesan</h2>
+            <p class="lede">Harga sudah termasuk teh dan air putih. Harga bisa berubah sewaktu-waktu, yang berlaku harga di papan.</p>
+          </div>
+
+          <div class="tabs" data-tabs role="tablist" aria-label="Kategori menu" data-reveal>
+            <button class="tab" type="button" role="tab" id="tab-brew" aria-selected="true" aria-controls="panel-brew" data-tab="brew">Seduhan</button>
+            <button class="tab" type="button" role="tab" id="tab-milk" aria-selected="false" aria-controls="panel-milk" data-tab="milk" tabindex="-1">Dengan susu</button>
+            <button class="tab" type="button" role="tab" id="tab-snack" aria-selected="false" aria-controls="panel-snack" data-tab="snack" tabindex="-1">Makanan</button>
+          </div>
+
+          <div id="panel-brew" role="tabpanel" aria-labelledby="tab-brew" class="menu__group">
+            <h3 class="menu__title">Seduhan</h3>
+            <p class="menu__note">Pakai biji arabika Aceh, diseduh ulang tiap 15 menit.</p>
+            <div class="menu">
+              <ul>
+                <li class="menu__item"><span class="menu__name">Kopi tubruk</span><span class="menu__price">12.000</span><span class="menu__desc">Yang paling sering dipesan. Gula aren opsional.</span></li>
+                <li class="menu__item"><span class="menu__name">Pour over</span><span class="menu__price">18.000</span><span class="menu__desc">Sesaat lebih lama, biar asamnya hilang.</span></li>
+                <li class="menu__item"><span class="menu__name">Kopi Sanger</span><span class="menu__price">20.000</span><span class="menu__desc">Kental, buat yang suka rasa bodas.</span></li>
+              </ul>
+              <ul>
+                <li class="menu__item"><span class="menu__name">Espresso</span><span class="menu__price">14.000</span><span class="menu__desc">Tungal, tanpa gula.</span></li>
+                <li class="menu__item"><span class="menu__name">Kopi hitam</span><span class="menu__price">10.000</span><span class="menu__desc">Tunggal, buat yang mau cepat.</span></li>
+                <li class="menu__item"><span class="menu__name">Teh tarik</span><span class="menu__price">10.000</span><span class="menu__desc">Bukan kopi, tapi tetap kami seduh sama.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="panel-milk" role="tabpanel" aria-labelledby="tab-milk" class="menu__group" hidden>
+            <h3 class="menu__title">Dengan susu</h3>
+            <p class="menu__note">Susu segar, bukan susu kental manis. Kalau mau lebih manis, bilang saja.</p>
+            <div class="menu">
+              <ul>
+                <li class="menu__item"><span class="menu__name">Kopi susu</span><span class="menu__price">16.000</span><span class="menu__desc">Panas atau dingin.</span></li>
+                <li class="menu__item"><span class="menu__name">Cappuccino</span><span class="menu__price">20.000</span><span class="menu__desc">Busanya tebal, dikocok dua kali biar kental.</span></li>
+                <li class="menu__item"><span class="menu__name">Latte</span><span class="menu__price">20.000</span><span class="menu__desc">Lebih banyak susu, lembut.</span></li>
+              </ul>
+              <ul>
+                <li class="menu__item"><span class="menu__name">Kopi susu aren</span><span class="menu__price">18.000</span><span class="menu__desc">Gula aren, sedikit lebih pekat.</span></li>
+                <li class="menu__item"><span class="menu__name">Cokelat panas</span><span class="menu__price">18.000</span><span class="menu__desc">Coklat hangat, sama manisnya dengan kopi susu.</span></li>
+                <li class="menu__item"><span class="menu__name">Susu oats</span><span class="menu__price">20.000</span><span class="menu__desc">Tambah 4.000 untuk oat milk.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="panel-snack" role="tabpanel" aria-labelledby="tab-snack" class="menu__group" hidden>
+            <h3 class="menu__title">Makanan</h3>
+            <p class="menu__note">Dimasak setelah pesanan masuk, jadi mohon tunggu 10 menit untuk makanan berat.</p>
+            <div class="menu">
+              <ul>
+                <li class="menu__item"><span class="menu__name">Roti lapis isi</span><span class="menu__price">15.000</span><span class="menu__desc">Telur, keju, atau sambal.</span></li>
+                <li class="menu__item"><span class="menu__name">Nasi goreng kampung</span><span class="menu__price">22.000</span><span class="menu__desc">Ayam, telur, dan hati bebek.</span></li>
+                <li class="menu__item"><span class="menu__name">Mie goreng</span><span class="menu__price">20.000</span><span class="menu__desc">Ayam atau seafood.</span></li>
+              </ul>
+              <ul>
+                <li class="menu__item"><span class="menu__name">Kentang goreng</span><span class="menu__price">12.000</span><span class="menu__desc">Salted atau polos.</span></li>
+                <li class="menu__item"><span class="menu__name">Pisang goreng</span><span class="menu__price">12.000</span><span class="menu__desc">Crispy di luar.</span></li>
+                <li class="menu__item"><span class="menu__name">Kue lapis</span><span class="menu__price">8.000</span><span class="menu__desc">Potongan kecil, buat dibagi dengan teman.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--sunk" id="cerita">
+        <div class="shell">
+          <div class="split">
+            <div class="split__body" data-reveal>
+              <span class="eyebrow">Cerita</span>
+              <h2>Kenapa namanya lambuk</h2>
+              <p class="lede">Di Aceh, kopi yang bagus sering diminum pelan, bukan buat melek. Namanya diambil dari kata lambuk yang artinya halus dan tidak bikin terganggu.</p>
+              <div class="prose">
+                <p>Kami tidak mengejar cita rasa yang manis dan dominan. Yang kami cari racikan yang masih terasa setelah teguk pertama, tidak hilang di mulut.</p>
+              </div>
+              <ul class="ticks">
+                <li>Biji dibeli langsung dari petani, bukan dari seller tengkul</li>
+                <li>Roasting profil rendah, supaya asamnya tidak menusuk</li>
+                <li>Gula aren dibuat sendiri, tanpa pemanis buatan</li>
+              </ul>
+            </div>
+            <figure class="split__media" data-reveal>
+              <img src="assets/img/beans.webp" alt="Biji kopi arabika yang sudah disangrai, filling seluruh bingkai" width="900" height="1200" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="suasana">
+        <div class="shell">
+          <div class="section__head" data-reveal>
+            <h2>Bagian dalam kedai</h2>
+            <p class="lede">Lorong kayu, bangku panjang di jendela, dan satu meja baca di belakang. Wifi ada, colokan ada, tidak ada batas waktu.</p>
+          </div>
+          <div class="gallery">
+            <figure data-reveal>
+              <img src="assets/img/hero.webp" alt="Proses menuang air dari teko ke corong pour over" width="1400" height="933" loading="lazy" decoding="async">
+            </figure>
+            <figure data-reveal>
+              <img src="assets/img/set.webp" alt="Set keramik bergaris biru berisi gelas, cangkir, dan teko di atas piring" width="1000" height="818" loading="lazy" decoding="async">
+            </figure>
+            <figure data-reveal>
+              <img src="assets/img/beans.webp" alt="Biji kopi arabika yang sudah disangrai" width="900" height="1200" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-label="Kata pelanggan">
+        <div class="shell">
+          <div class="quote">
+            <p class="quote__text" data-reveal>Datang karena dekat kantor, balik lagi karena porinya tidak pelek.</p>
+            <p class="quote__by" data-reveal><b>Raisa</b> pelanggan sejak 2023</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--deep" id="kunjungi">
+        <div class="shell">
+          <div class="section__head" data-reveal>
+            <span class="eyebrow">Kunjungi</span>
+            <h2>Mampir, duduk sebentar</h2>
+            <p class="lede">Tidak perlu pesan dulu. Ambil tempat, pesan, lalu pindah kalau mau ganti posisi.</p>
+          </div>
+
+          <div class="visit">
+            <div class="visit__card" data-reveal>
+              <p class="visit__label">Alamat</p>
+              <p class="visit__value">Jalan Tgk. H. Hasan No. 18, Lamnga, Banda Aceh</p>
+              <p class="visit__hint">Parkir motor di depan, muat dua mobil. Halte bus di seberang jalan.</p>
+            </div>
+            <div class="visit__card" data-reveal>
+              <p class="visit__label">Jam buka</p>
+              <dl>
+                <div><dt>Senin Jumat</dt><dd>07.00 sampai 23.00</dd></div>
+                <div><dt>Sabtu Minggu</dt><dd>08.00 sampai 23.30</dd></div>
+              </dl>
+              <p class="visit__hint">Paling ramai sekitar pukul 08.00. Setelah pukul 15.00 biasanya kosong.</p>
+            </div>
+            <div class="visit__card" data-reveal>
+              <p class="visit__label">Kontak</p>
+              <dl>
+                <div><dt>WhatsApp</dt><dd>0811 2000 1234</dd></div>
+                <div><dt>Surel</dt><dd>halo@kopilambuk.id</dd></div>
+                <div><dt>Instagram</dt><dd>@kopilambuk</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <div class="cta mt-l" data-reveal>
+            <h2>Pesan untuk dibawa pulang</h2>
+            <p>Biji mentah 250 gram, disangrai khusus untuk pesananmu. Ambil di kedai atau kirim via kurir.</p>
+            <div class="cta__actions">
+              <a class="btn btn--accent btn--lg" href="#">Pesan lewat WhatsApp</a>
+              <a class="btn btn--on-dark btn--lg" href="#menu">Lihat menu lagi</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell">
+        <div class="footer__grid">
+          <div>
+            <a class="brand" href="#top">
+              <span class="brand__mark" aria-hidden="true">KL</span>
+              <span class="brand__name">Kopi Lambuk</span>
+            </a>
+            <p class="footer__blurb">Kedai kopi tubruk di Banda Aceh. Menyeduh sejak 2021.</p>
+          </div>
+          <div>
+            <p class="footer__label">Halaman</p>
+            <div class="footer__links">
+              <a href="#menu">Menu</a>
+              <a href="#cerita">Cerita</a>
+              <a href="#suasana">Suasana</a>
+              <a href="#kunjungi">Kunjungi</a>
+            </div>
+          </div>
+          <div>
+            <p class="footer__label">Kontak</p>
+            <div class="footer__links">
+              <a href="tel:+6281120001234">0811 2000 1234</a>
+              <a href="mailto:halo@kopilambuk.id">halo@kopilambuk.id</a>
+              <a href="#">Instagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__base">
+          <span>&copy; 2026 Kopi Lambuk. Contoh desain, bukan usaha sungguhan.</span>
+          <span>Banda Aceh</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

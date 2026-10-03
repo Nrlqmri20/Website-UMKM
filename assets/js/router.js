@@ -109,16 +109,22 @@ const navigate = (path, { replace = false } = {}) => {
   scrollTop();
 };
 
+const isSpaRoute = (pathname) => {
+  const path = pathname.replace(/\/+$/, "").replace(/^\/+/, "");
+  return byPath.has(path);
+};
+
 const isInternal = (anchor) => {
   if (!anchor || anchor.target === "_blank") return false;
   if (anchor.hasAttribute("download")) return false;
+  if (anchor.hasAttribute("data-native")) return false;
 
   const href = anchor.getAttribute("href") || "";
-  if (!href.startsWith("/") && !href.startsWith("#")) return false;
+  if (!href.startsWith("/")) return false;
 
-  if (href.startsWith("#")) return false;
-
-  return true;
+  // Hanya path yang memang route SPA yang diintervensi.
+  // Link ke folder lain seperti /project/ dibiarkan ke browser.
+  return isSpaRoute(new URL(href, window.location.origin).pathname);
 };
 
 export const startRouter = () => {

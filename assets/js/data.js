@@ -263,77 +263,50 @@ export const prepareList = [
 ];
 
 export const portfolioFilters = [
-  { id: "all", label: "Semua project" },
+  { id: "all", label: "Semua contoh" },
   { id: "umkm", label: "Website UMKM" },
-  { id: "portfolio", label: "Personal portfolio" },
-  { id: "landing", label: "Landing page" },
 ];
 
 export const portfolio = [
   {
-    id: "kopi-siang",
-    title: "Kopi Siang",
-    client: "Kedai kopi lokal",
+    id: "tahu-walik-nuyyol",
+    title: "Tahu Walik Nuyyol",
+    client: "Contoh desain, bukan klien nyata",
     category: "umkm",
     categoryLabel: "Website UMKM",
     year: "2026",
-    summary: "Halaman menu, jam buka, dan lokasi yang enak dibuka dari layar ponsel.",
-    image: "https://picsum.photos/seed/codecraft-kedai-kopi-lokal/1200/900",
-    imageAlt: "Foto contoh website kedai kopi lokal",
-    liveUrl: "",
+    summary:
+      "Website satu halaman untuk penjual gorengan tahu walik. Fokus pada harga yang langsung terlihat dan cara pemesanan lewat WhatsApp.",
+    image: "project2/assets/img/walik2.webp",
+    imageAlt: "Piring tahu walik dengan wadah sambal merah",
+    liveUrl: "/project2/",
     demo: true,
   },
   {
-    id: "studio-raka",
-    title: "Studio Raka",
-    client: "Fotografer independen",
-    category: "portfolio",
-    categoryLabel: "Personal portfolio",
-    year: "2026",
-    summary: "Portofolio foto dengan halaman detail per sesi dan tombol WhatsApp di tiap foto.",
-    image: "https://picsum.photos/seed/codecraft-fotografer-portfolio/1200/900",
-    imageAlt: "Foto contoh portofolio seorang fotografer",
-    liveUrl: "",
-    demo: true,
-  },
-  {
-    id: "batik-kita",
-    title: "Batik Kita",
-    client: "Perajin batik, Aceh Besar",
+    id: "kopi-lambuk",
+    title: "Kopi Lambuk",
+    client: "Contoh desain, bukan klien nyata",
     category: "umkm",
     categoryLabel: "Website UMKM",
     year: "2026",
-    summary: "Katalog motif batik dan kanal pemesanan lewat WhatsApp.",
-    image: "https://picsum.photos/seed/codecraft-batik-katalog/1200/900",
-    imageAlt: "Foto contoh katalog produk batik",
-    liveUrl: "",
-    demo: true,
-  },
-  {
-    id: "kelas-masak",
-    title: "Kelas Masak Ruumah",
-    client: "Kelas masak rumahan",
-    category: "landing",
-    categoryLabel: "Landing page",
-    year: "2026",
-    summary: "Landing page satu halaman untuk pendaftaran kelas, dengan formulir singkat.",
-    image: "https://picsum.photos/seed/codecraft-landing-page-kelas-masak/1200/900",
-    imageAlt: "Foto contoh landing page kelas masak",
-    liveUrl: "",
+    summary:
+      "Website kedai kopi dengan menu bertab, cerita asal biji, dan blok jam buka serta lokasi yang mudah dipindai.",
+    image: "project/assets/img/hero.webp",
+    imageAlt: "Menuang air dari teko hitam ke corong pour over, kopi menetes ke gelas",
+    liveUrl: "/project/",
     demo: true,
   },
 ];
 
 export const portfolioDisclosure = {
-  title: "Project contoh, bukan klien sungguhan",
-  body: "CodeCraft Digital baru mulai, jadi halaman ini dipakai untuk menunjukkan bentuk layanan, bukan klaim hasil kerja. Begitu ada project milik klien asli, gambar dan detailnya akan diganti dengan yang asli.",
+  title: "Contoh desain, bukan pekerjaan klien",
+  body: "Dua halaman di bawah adalah contoh yang saya kerjakan sendiri untuk menunjukkan cara saya mengerjakan website UMKM. Bukan hasil kerja untuk klien sungguhan, dan nama usaha di dalamnya dibuat fiktif.",
   notes: [
-    "Semua gambar di sini masih foto contoh",
-    "Belum ada tautan website yang bisa dibuka",
-    "Belum ada testimoni klien yang ditampilkan",
+    "Kedua halaman bisa dibuka dan dipakai, bukan tangkapan layar",
+    "Foto produknya asli, bukan gambar placeholder",
+    "Belum ada klien nyata yang boleh diklaim sebagai portofolio",
   ],
 };
-
 export const faqs = [
   {
     q: "Apakah saya harus mempunyai domain sendiri?",

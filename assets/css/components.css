@@ -713,6 +713,13 @@
   color: var(--ink-muted);
 }
 
+.work__client {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-top: -0.1rem;
+}
+
 .work__note {
   font-size: 0.8rem;
   color: var(--ink-muted);

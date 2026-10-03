@@ -252,8 +252,8 @@ check("about: tidak ada klaim angka project", !/\d+\+\s*(project|klien|client)/i
 
 const portfolioPage = rendered.get("portfolio") || "";
 check("portfolio: semua kartu punya gambar", (portfolioPage.match(/<img\b/g) || []).length >= portfolio.length);
-check("portfolio: card demo diberi keterangan", /belum klien sungguhan/i.test(portfolioPage));
-check("portfolio: ada pengungkapan status contoh", /bukan klien sungguhan/i.test(portfolioPage));
+check("portfolio: card demo diberi keterangan", /Contoh desain, bukan klien nyata/i.test(portfolioPage));
+check("portfolio: ada pengungkapan status contoh", /bukan pekerjaan klien/i.test(portfolioPage));
 
 const testimonialFake = /—\s*(Sarah|John|Dewi|Ahmad|Budi)/i.test(home);
 check("home: tidak ada testimoni rekaan", !testimonialFake);

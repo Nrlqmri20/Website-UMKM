@@ -38,6 +38,7 @@ const serveFile = async (res, filePath) => {
 
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
+  const hadSlash = url.pathname.endsWith("/");
   const clean = decodeURIComponent(url.pathname).replace(/\/+$/, "") || "/";
 
   const safe = normalize(clean).replace(/^(\.\.[/\\])+/, "");
@@ -56,7 +57,15 @@ const server = createServer(async (req, res) => {
       return;
     }
 
-    await serveFile(res, join(candidate, "index.html"));
+    if (info.isDirectory()) {
+      if (!hadSlash) {
+        res.writeHead(301, { Location: `${url.pathname}/${url.search}` });
+        res.end();
+        return;
+      }
+      await serveFile(res, join(candidate, "index.html"));
+      return;
+    }
   } catch {
     const fallback = join(root, safe, "index.html");
 
